@@ -1,0 +1,147 @@
+//kelimeleri düzenle darg-drop
+// atasözleri listesi oluştur
+// atasözlerini kelime kelime ayır ++
+// buttona tamam denildiğinde konula kelimeleri birleştir.
+// dogru ise tebrikler yanlış ise atalarınız üzgün lütfen tekrar deneyin ve onları sevindirin.imoji ekle
+
+const proverbs = [
+  "Acele ile menzil alınmaz",
+  "Acılı başta akıl olmaz",
+  "Acırsan Taraklı’nın öküzüne acı",
+  "Ak akçe kara gün içindir",
+  "Akrabanın akrabaya ettiğini akrep etmez",
+  "Alan el olma veren el ol",
+  "Ali evlendi Güllü gelin oldu",
+  "Ali evlendi Güllü görücüye gitti",
+  "Altgıya oturulmadan üstgıya oturulmaz",
+  "Ana rahminden geldik pazara, kefen aldık gidiyoruz mezara",
+  "Armut dibine düşer",
+  "Aşadan yer yakdı, yukadan gün yakdı",
+  "Ayağını yorganına göre uzat",
+  "Az veren candan, çok veren maldan",
+  "Beyler buyruğu yoksula kan ağlatır",
+  "Bin bilsen de bir bilene danış",
+  "Bin dost az, bir düşman çoktur",
+  "Bir elin nesi var iki elin sesi var",
+  "Böle darak dişi gibi insan; iyi insan",
+  "Can çıkar huy çıkmaz",
+  "Çok yaşayan değil çok gezen bilir",
+  "Damlaya damlaya göl olur",
+  "Davulun sesi uzaktan goygun gelir",
+  "Dert saklayanda kalır",
+  "Dövendeki öküze burunduruk takılmaz",
+  "Düğün arpasıyla at beslenmez",
+  "Düğün evinde kız yaylada öküz beğenilmez",
+  "Dünya ahret gardaşım osun",
+  "Ekmek mayadan kız anadan olur",
+  "Ekmek olmadan yemek olmaz",
+  "El elden üstündür",
+  "Elden gelen üğün omamış o da vaktinde bulunmamış",
+  "Erkek kısmı eşeğinden karı kısmı döşeğinden belli olur",
+  "Gece gözüyle bez genç gözüyle kız alma",
+  "Güzün ekilen darıdan kocasından geç kalkan hanımdan hayır gelmez",
+];
+
+window.onload = createElements;
+
+Array.prototype.random = function () {
+  return this[Math.floor(Math.random() * this.length)];
+};
+
+// select random proverbs and split the sentence word by word.
+let randomProverb = proverbs.random();
+let seperateWords = randomProverb.split(" ");
+
+//change the index of word in array
+function scrambleWords(arr) {
+  for (let i = seperateWords.length - 1; i >= 0; i--) {
+    let element = arr[i];
+    let j = Math.floor(Math.random() * arr.length);
+    arr[i] = arr[j];
+    arr[j] = element;
+  }
+
+  return arr;
+}
+
+// create Button for each words
+let words = scrambleWords(seperateWords);
+
+function createElements() {
+  let dragZone = document.querySelector(".model");
+
+  for (let i = words.length - 1; i >= 0; i--) {
+    let createButton = `<button id="proverbsWord" draggable="true"> ${words[i]} </button>`;
+
+    dragZone.insertAdjacentHTML("beforeend", createButton);
+  }
+}
+
+// drag and drop events
+function dragDrop() {
+  document.addEventListener(
+    "dragstart",
+    function (event) {
+      dragged = event.target;
+    },
+    false
+  );
+
+  document.addEventListener(
+    "dragover",
+    function (event) {
+      event.preventDefault();
+    },
+    false
+  );
+
+  document.addEventListener(
+    "drop",
+    function (event) {
+      event.preventDefault();
+      if (event.target.className == "dropzone") {
+        dragged.parentNode.removeChild(dragged);
+        event.target.appendChild(dragged);
+      } else if (event.target.className == "model") {
+        dragged.parentNode.removeChild(dragged);
+        event.target.appendChild(dragged);
+      }
+    },
+    false
+  );
+}
+
+dragDrop();
+
+console.log(randomProverb);
+//check the sentence whether true
+
+let succesAlert = document.getElementById("sucessAlert");
+let succesBtn = document.querySelector(".succesBtn");
+let warningAlert = document.getElementById("warningAlert");
+let warningBtn = document.querySelector(".warningBtn");
+
+function checkResult() {
+  let dropzoneContent = document.querySelector(".dropzone");
+  let uniteWords = dropzoneContent.textContent.trim();
+
+  let arrayLi = [];
+  arrayLi.push(uniteWords);
+  let newWords = arrayLi[0].split("  ").join(" ");
+
+  if (newWords == randomProverb) {
+    succesAlert.style.display = "block";
+    succesBtn.onclick = function (event) {
+      location.reload();
+      succesAlert.style.display = "none";
+    };
+  } else {
+    warningAlert.style.display = "block";
+    warningBtn.onclick = function (event) {
+      warningAlert.style.display = "none";
+    };
+  }
+}
+
+let checkButton = document.querySelector("#checkButton");
+checkButton.addEventListener("click", checkResult);

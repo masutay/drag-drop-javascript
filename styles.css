@@ -1,0 +1,128 @@
+body {font-family: Arial, Helvetica, sans-serif;}
+.model {
+    margin-left:20%;
+    margin-top: 30px;
+    height: 50px;
+}
+.header  {
+    margin-left: 24%;
+    margin-top: 30px;
+}
+
+.dropzone {
+    background-color: 	#ffff8b;
+    width: 60%;
+    border: 2px solid black;
+    padding: 50px;
+    height: 100px;
+    margin-left: 15%;
+    margin-top: 10px;
+}
+
+.header {
+    margin-bottom: 40px;
+}
+
+#checkButton {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    margin-left: 73%;
+    margin-top: 10px;
+}
+
+#checkButton:hover {
+    background-color: #99c49a;
+    background-position: 0 0;
+    color: white;
+}
+
+button {
+    margin-bottom: 10px;
+    margin-left: 5px;
+    background: #FF4742;
+    border: 1px solid #FF4742;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+}
+
+#warningBtn:hover,
+#proverbsWord:hover,
+#warningBtn,
+#proverbsWord:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #FF4742;
+}
+
+#proverbsWord:active {
+    opacity: .5;
+}
+
+.succesBtn {
+    background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.9;
+}
+.succesBtn:hover,
+.succesBtn:active {
+    background-color: green;
+    background-position: 0 0;
+    color: white;
+    opacity: .5;
+}
+
+.container {
+  padding: 16px;
+  text-align: center;
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: #474e5d;
+  padding-top: 50px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; 
+  border: 1px solid #888;
+  width: 80%; 
+}
+

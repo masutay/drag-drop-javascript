@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Place the words in the correct order!</h1>
+    </div>
+    <div class="model"  id="dragDrop"> </div>
+
+    <div class="dropzone"> </div>
+
+    <div>
+        <button id="checkButton">Check</button>
+    </div>
+
+    <div id="sucessAlert" class="modal">
+        <form class="modal-content">
+            <div class="container">
+                <h1> Congratulations!</h1>
+                <p>Your word order is correct.</p>
+                <div class="clearfix">
+                    <button type="button" class="succesBtn">Give Another Proverb</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="warningAlert" class="modal">
+        <form class="modal-content">
+            <div class="container">
+                <h1>You missed!</h1>
+                <div class="clearfix">
+                    <button type="button" class="warningBtn">Try Again</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
